@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ShoeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +42,14 @@ Route::middleware('auth')
             Route::delete(  '/', [ProfileController::class, 'destroy'   ])->name('destroy');
         }
     );
+
+
+Route::middleware('auth')
+    ->prefix('/Admin')
+    ->name('Admin.')
+    ->group(function () {
+    // rotta resouce project 
+    Route::resource('Shoe', ShoeController::class);
+});
 
 require __DIR__ . '/auth.php';
