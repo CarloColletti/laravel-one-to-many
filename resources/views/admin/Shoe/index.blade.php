@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('cdn')
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+@endsection
+
 @section('title')
   Lista Scarpe
 @endsection
@@ -48,7 +52,7 @@
               <td>{{$shoe->type}}</td>
               {{-- button function --}}
               <td>
-                <a href="#" class="px-2">
+                <a href="{{ route('Admin.Shoe.show',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-card-list"></i>
                 </a>
                 <a href="#" class="px-2">

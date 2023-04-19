@@ -8,3 +8,11 @@ main {
 .jumbotron {
     min-height: calc(100vh - 70px);
 }
+
+td a{
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}

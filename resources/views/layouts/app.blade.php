@@ -28,6 +28,10 @@
 
   {{-- footer carino  --}}
   @include('partials._footer')
+
+
+  @yield('modal')
+  @yield('script')
 </body>
 
 </html>
