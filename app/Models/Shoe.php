@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shoe extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = [
+    'name',
+    'brand',
+    'size',
+    'price',
+    'type',
+    'img',
+  ];
 }

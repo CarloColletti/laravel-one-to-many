@@ -22,7 +22,7 @@
 
         <div class="col-4">
           <div class="d-flex">
-            <a href="#" class="btn btn-outline-success ms-auto" type="submit">Nuova Scarpa</a>
+            <a href="{{ route('Admin.Shoe.create') }}" class="btn btn-outline-success ms-auto" type="submit">Nuova Scarpa</a>
           </div>
         </div>
 

@@ -26,7 +26,7 @@ class ShoeController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.Shoe.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shoe = new Shoe;
+        $shoe -> fill($request->all());
+        $shoe -> img = "https://picsum.photos/300/200";
+        $shoe ->save();
+
+        return redirect() -> route('Admin.Shoe.show', $shoe);
     }
 
     /**

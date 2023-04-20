@@ -6,18 +6,20 @@
 
 @section('content')
   <div class="container">
-    {{-- detail shoe  --}}
-    <div class="row">
+    <div class="row py-5">
       <h2>
         Stai visualizzando la Scarpa: {{$Shoe->name}}
       </h2>
+    </div>
+    {{-- detail shoe  --}}
+    <div class="row">
       {{-- list detail  --}}
       <div class="col-7">
         <ul>
           <li>Nome: {{$Shoe->name}}</li>
           <li>Brand: {{$Shoe->brand}}</li>
           <li>Taglia: {{$Shoe->size}}</li>
-          <li>Prezzo {{$Shoe->price}}</li>
+          <li>Prezzo: {{$Shoe->price}}€</li>
           <li>Tipologia: {{$Shoe->type}}</li>
         </ul>
       </div>
