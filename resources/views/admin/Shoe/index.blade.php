@@ -51,21 +51,14 @@
               <td>{{$shoe->price}}€</td>
               <td>{{$shoe->type}}</td>
               {{-- button function --}}
-              <td class="d-flex">
+              <td class="">
                 <a href="{{ route('Admin.Shoe.show',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-card-list"></i>
                 </a>
                 <a href="{{ route('Admin.Shoe.edit',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-pencil-square"></i>
                 </a>
-                <form action="{{route('Admin.Shoe.destroy',['Shoe' => $shoe])}}" method="POST" class="px-2 text-danger">
-                  {{-- token  --}}
-                  @csrf
-                  {{-- method  --}}
-                  @method('delete')
-                  {{-- submit --}}
-                  <button type="submit" class=""><i class="bi bi-trash3"></i></button>
-                </form>
+                <button type="button" class="btn bi bi-trash" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$shoe->id}}"></button>
               </td>
             </tr>
           @endforeach
@@ -75,4 +68,32 @@
       {{-- end table  --}}
     </div>
   </div>
+@endsection
+
+@section('modal')
+    @foreach ($shoes as $shoe)
+  <div class="modal fade" id="delete-modal-{{$shoe->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Conferma di Eliminazione della scarpa</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Se si procede, l'elemento: {{$shoe->name}} verrà eliminato.<br>
+          L'operazione non è reversibile <br>
+          Vuoi davvero procedere?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+          <form action="{{route('Admin.Shoe.destroy',['Shoe' => $shoe])}}" method="POST" class="px-2 text-danger">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
 @endsection
