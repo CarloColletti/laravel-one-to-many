@@ -78,6 +78,12 @@
         </div>
       </form>
 
+      {{-- botton return to shoe list  --}}
+      <div class="row py-5">
+        <div class="col-2 ms-auto">
+          <a href="{{ route('Admin.Shoe.index') }}" class="btn btn-outline-success">Torna alla lista</a>
+        </div>
+      </div>
 
     </div>
   </div>
