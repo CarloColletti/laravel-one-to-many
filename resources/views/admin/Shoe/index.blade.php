@@ -51,14 +51,21 @@
               <td>{{$shoe->price}}€</td>
               <td>{{$shoe->type}}</td>
               {{-- button function --}}
-              <td>
+              <td class="d-flex">
                 <a href="{{ route('Admin.Shoe.show',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-card-list"></i>
                 </a>
                 <a href="{{ route('Admin.Shoe.edit',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-pencil-square"></i>
                 </a>
-                <button type="button" class="btn bi bi-trash" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$shoe->id}}"></button>
+                <form action="{{route('Admin.Shoe.destroy',['Shoe' => $shoe])}}" method="POST" class="px-2 text-danger">
+                  {{-- token  --}}
+                  @csrf
+                  {{-- method  --}}
+                  @method('delete')
+                  {{-- submit --}}
+                  <button type="submit" class=""><i class="bi bi-trash3"></i></button>
+                </form>
               </td>
             </tr>
           @endforeach

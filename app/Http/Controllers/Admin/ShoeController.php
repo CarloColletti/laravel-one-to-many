@@ -89,8 +89,10 @@ class ShoeController extends Controller
      * @param  \App\Models\Shoe  $shoe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Shoe $shoe)
+    public function destroy(Shoe $Shoe)
     {
-        //
+        $Shoe->delete();
+
+        return redirect ()->route('Admin.Shoe.index');
     }
 }
