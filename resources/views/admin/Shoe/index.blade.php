@@ -55,7 +55,7 @@
                 <a href="{{ route('Admin.Shoe.show',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-card-list"></i>
                 </a>
-                <a href="#" class="px-2">
+                <a href="{{ route('Admin.Shoe.edit',['Shoe'=>$shoe]) }}" class="px-2">
                   <i class="bi bi-pencil-square"></i>
                 </a>
                 <button type="button" class="btn bi bi-trash" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$shoe->id}}"></button>

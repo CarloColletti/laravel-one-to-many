@@ -45,7 +45,7 @@
               </div>
 
               {{-- type of shoes --}}
-              <label for="type" class="form-label">Nome del type:</label>
+              <label for="type" class="form-label">Tipo di Scarpa:</label>
               <div class="mb-3">
                 <select class="form-select form-control" name='type' id='type'>
                   <option value="elegant">Elegante</option>

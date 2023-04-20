@@ -62,9 +62,9 @@ class ShoeController extends Controller
      * @param  \App\Models\Shoe  $shoe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Shoe $shoe)
+    public function edit(Shoe $Shoe)
     {
-        //
+        return view('Admin.Shoe.edit', compact('Shoe'));
     }
 
     /**
@@ -74,9 +74,13 @@ class ShoeController extends Controller
      * @param  \App\Models\Shoe  $shoe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Shoe $shoe)
+    public function update(Request $request, Shoe $Shoe)
     {
-        //
+        $data = $request->all();
+
+        $Shoe->update($data);
+
+        return redirect ()->route('Admin.Shoe.show', $Shoe);
     }
 
     /**
