@@ -84,9 +84,9 @@
               <label for="type" class="form-label" value='{{$Shoe->type}}'>Tipo di Scarpa:</label>
               <div class="mb-3">
                 <select class="form-select form-control" name='type' id='type'>
-                  <option value="elegant">Elegante</option>
-                  <option value="sportive">Sportivo</option>
-                  <option value="casual">Casual</option>
+                  <option value="elegant" @if (old('type') == 'elegant') selected @endif >Elegante</option>
+                  <option value="sportive" @if (old('type') == 'sportive') selected @endif >Sportivo</option>
+                  <option value="casual" @if (old('type') == 'casual') selected @endif >Casual</option>
                 </select>
               </div>
 
