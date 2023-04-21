@@ -43,7 +43,34 @@ class ShoeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // validation 
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'brand'=> 'required|string|max:50', 
+            'size'=> 'required|integer',
+            'price'=> 'required|integer',
+            'type'=> 'required|string|in:elegant,sportive,casual',
+        ],[
+            // require message 
+            'name.required'=> 'Il nome della scarpa è obbligatorio',
+            'brand.required'=> "Il nome dell'brand è obbligatorio",
+            'size.required'=> "È necessario inseriere la misura della scarpa",
+            'price.required'=> "È necessario inseriere il prezzo della scarpa",
+            'type.required'=> "Il tipo di scarpa è obbligatorio",
+
+            // max char message
+            'name.max'=> 'Il nome della scarpa non puo superare i 50 caratteri',
+            'brand.max'=> "il nome del brand non puo superare i 50 caratteri",
+
+            // enum message 
+            'type.in'=> 'devi scegliere tra elegante, sportivo o casual',
+
+            // prise decimal message 
+            'price.required'=> 'Il nome della scarpa è obbligatorio',
+
+        ]);
+
         $shoe = new Shoe;
         $shoe -> fill($request->all());
         $shoe -> img = "https://picsum.photos/300/200";
@@ -83,6 +110,35 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $Shoe)
     {
+
+        // validation 
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'brand'=> 'required|string|max:50', 
+            'size'=> 'required|integer',
+            'price'=> 'required',
+            'type'=> 'required|string|in:elegant,sportive,casual',
+        ],[
+            // require message 
+            'name.required'=> 'Il nome della scarpa è obbligatorio',
+            'brand.required'=> "Il nome dell'brand è obbligatorio",
+            'size.required'=> "È necessario inseriere la misura della scarpa",
+            'price.required'=> "È necessario inseriere il prezzo della scarpa",
+            'type.required'=> "Il tipo di scarpa è obbligatorio",
+
+            // max char message
+            'name.max'=> 'Il nome della scarpa non puo superare i 50 caratteri',
+            'brand.max'=> "il nome del brand non puo superare i 50 caratteri",
+
+            // enum message 
+            'type.in'=> 'devi scegliere tra elegante, sportivo o casual',
+
+            // prise decimal message 
+            'price.required'=> 'Il nome della scarpa è obbligatorio',
+
+        ]);
+
+
         $data = $request->all();
 
         $Shoe->update($data);
