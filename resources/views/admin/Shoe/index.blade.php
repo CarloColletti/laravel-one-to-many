@@ -37,7 +37,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=id&order=@if ($sort = 'id' && $order != 'DESC') DESC @else ASC @endif">
                 Id
                 @if ($sort == 'id')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
@@ -45,7 +45,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=name&order=@if ($sort = 'name' && $order != 'DESC') DESC @else ASC @endif">
                 Nome Scarpa
                 @if ($sort == 'name')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
@@ -53,7 +53,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=brand&order=@if ($sort = 'brand' && $order != 'DESC') DESC @else ASC @endif">
                 Brand
                 @if ($sort == 'brand')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
@@ -61,7 +61,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=size&order=@if ($sort = 'size' && $order != 'DESC') DESC @else ASC @endif">
                 Taglia
                 @if ($sort == 'size')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
@@ -69,7 +69,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=price&order=@if ($sort = 'price' && $order != 'DESC') DESC @else ASC @endif">
                 prezzo
                 @if ($sort == 'price')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
@@ -77,7 +77,7 @@
               <a href="{{ route('Admin.Shoe.index') }}?sort=type&order=@if ($sort = 'type' && $order != 'DESC') DESC @else ASC @endif">
                 Tipo
                 @if ($sort == 'type')
-                  <i class="bi bi-triangle"></i>
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
                 @endif
               </a>
             </th>
