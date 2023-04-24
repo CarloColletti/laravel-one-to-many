@@ -66,6 +66,8 @@
         </tbody>
       </table>
       {{-- end table  --}}
+
+      {{ $shoes->links() }}
     </div>
   </div>
 @endsection

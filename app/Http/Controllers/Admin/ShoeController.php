@@ -16,14 +16,14 @@ class ShoeController extends Controller
      */
     public function index(Request $request)
     {
-        $shoes = Shoe::all();
+        // $shoes = Shoe::all();
 
-        // if($request->has('term')){
-        //     $term = $request->get('term');
-        //     $shoes = Shoe::where('title', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
-        // }else{
-        //     $shoes = Shoe::paginate(15);
-        // }
+        if($request->has('term')){
+            $term = $request->get('term');
+            $shoes = Shoe::where('title', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
+        }else{
+            $shoes = Shoe::paginate(15);
+        }
         return view('Admin.Shoe.index', compact('shoes'));
     }
 
