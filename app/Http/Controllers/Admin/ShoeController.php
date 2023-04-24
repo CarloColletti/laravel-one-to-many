@@ -11,11 +11,12 @@ class ShoeController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
+        // mostra tutti senza pagination 
         // $shoes = Shoe::all();
 
 
@@ -23,12 +24,16 @@ class ShoeController extends Controller
         if($request->has('term')){
             $term = $request->get('term');
             // search + paginate
-            $shoes = Shoe::where('name', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
+            $shoes = Shoe::orderBy('updated_at', 'DESC')->where('name', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
         }else{
             // only paginate 
-            $shoes = Shoe::paginate(15);
+            $shoes = Shoe::orderBy('updated_at', 'DESC')->paginate(15);
         }
-        return view('Admin.Shoe.index', compact('shoes'));
+
+
+        $sort = (!empty($sort_request = $request->get('sort'))) ? $sort_request : 'updated_at';
+        $order = (!empty($order_request = $request->get('order'))) ? $order_request : 'updated_at';
+        return view('Admin.Shoe.index', compact('shoes', 'sort', 'order'));
     }
 
     /**
