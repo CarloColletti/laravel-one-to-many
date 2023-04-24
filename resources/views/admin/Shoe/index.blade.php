@@ -81,6 +81,14 @@
                 @endif
               </a>
             </th>
+            <th scope="col">
+              <a href="{{ route('Admin.Shoe.index') }}?sort=updated_at&order=@if ($sort = 'type' && $order != 'DESC') DESC @else ASC @endif">
+                Ultima Modifica
+                @if ($sort == 'updated_at')
+                  <i class="bi bi-triangle d-inline-block @if ($order == 'DESC') rotate_180 @endif"></i>
+                @endif
+              </a>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -92,6 +100,7 @@
               <td>{{$shoe->size}}</td>
               <td>{{$shoe->price}}€</td>
               <td>{{$shoe->type}}</td>
+              <td>{{$shoe->updated_at}}</td>
               {{-- button function --}}
               <td class="">
                 <a href="{{ route('Admin.Shoe.show',['Shoe'=>$shoe]) }}" class="px-2">

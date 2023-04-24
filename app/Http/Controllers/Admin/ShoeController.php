@@ -32,7 +32,7 @@ class ShoeController extends Controller
 
 
         $sort = (!empty($sort_request = $request->get('sort'))) ? $sort_request : 'updated_at';
-        $order = (!empty($order_request = $request->get('order'))) ? $order_request : 'updated_at';
+        $order = (!empty($order_request = $request->get('order'))) ? $order_request : 'DESC';
         return view('Admin.Shoe.index', compact('shoes', 'sort', 'order'));
     }
 
@@ -148,5 +148,10 @@ class ShoeController extends Controller
         )->validate();
         
         return $validate;
+    }
+
+
+    protected function getUpdateteAtAttribute($value) {
+        return date('d/m/Y', strtotime($value));
     }
 }
