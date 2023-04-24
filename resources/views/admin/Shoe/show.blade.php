@@ -6,6 +6,13 @@
 
 @section('content')
   <div class="container">
+    <div class="row py-3">
+      @if (session('create_success'))
+        <div class="alert alert-success">
+          {{ session('create_success') }}
+        </div>
+      @endif
+    </div>
     <div class="row py-5">
       <h2>
         Stai visualizzando la Scarpa: {{$Shoe->name}}

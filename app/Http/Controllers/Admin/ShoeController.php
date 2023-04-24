@@ -60,7 +60,12 @@ class ShoeController extends Controller
         $shoe -> img = "https://picsum.photos/300/200";
         $shoe ->save();
 
-        return redirect() -> route('Admin.Shoe.show', $shoe);
+        // redirect standard alla show 
+        // return redirect() -> route('Admin.Shoe.show', $shoe);
+
+        // redirect con route alla show ma con la variabile flash per successo  creazione 
+        return to_route('Admin.Shoe.show', $shoe)
+            ->with('create_success','Scarpa creata con successo' );
     }
 
     /**
