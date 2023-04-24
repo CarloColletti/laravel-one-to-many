@@ -67,6 +67,8 @@
       </table>
       {{-- end table  --}}
 
+
+      {{-- paginate bootstrap --}}
       {{ $shoes->links() }}
     </div>
   </div>

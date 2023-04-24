@@ -18,10 +18,14 @@ class ShoeController extends Controller
     {
         // $shoes = Shoe::all();
 
+
+        // search function and paginate 
         if($request->has('term')){
             $term = $request->get('term');
+            // search + paginate
             $shoes = Shoe::where('name', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
         }else{
+            // only paginate 
             $shoes = Shoe::paginate(15);
         }
         return view('Admin.Shoe.index', compact('shoes'));
