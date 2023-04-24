@@ -10,8 +10,8 @@
       <h2>
         Inserisci i dati della nuova Scarpa
       </h2>
-      {{-- form add new shoes  --}}
-      <form action="{{ route('Admin.Shoe.store') }}" method="POST" class="row py-5">
+      {{-- form add new shoes  --}}                   {{-- serve enctype="multipart/form-data" per consentire al form di inviare dei file senza di esso nn funzionerà --}}
+      <form action="{{ route('Admin.Shoe.store') }}" enctype="multipart/form-data" method="POST" class="row py-5">
         {{-- token  --}}
         @csrf
 

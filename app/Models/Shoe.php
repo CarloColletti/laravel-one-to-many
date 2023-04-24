@@ -17,4 +17,8 @@ class Shoe extends Model
     'type',
     'img',
   ];
+
+  protected function getUpdatedAtAttribute($value) {
+    return date('d/m/Y H:i:s', strtotime($value));
+  }
 }

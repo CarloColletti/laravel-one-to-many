@@ -149,9 +149,4 @@ class ShoeController extends Controller
         
         return $validate;
     }
-
-
-    protected function getUpdateteAtAttribute($value) {
-        return date('d/m/Y', strtotime($value));
-    }
 }
