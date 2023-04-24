@@ -12,6 +12,8 @@
         Stai visualizzando la Scarpa: {{$Shoe->name}}
       </h2>
     </div>
+    {{-- include message success operation --}}
+    @include('partials._message')
     {{-- button to modify shoe  --}}
     <div class="row py-5">
       <div class="col-2 ms-auto">

@@ -104,8 +104,10 @@
         </div>
 
         {{-- image preview (placeholder)  --}}
-        <div class="col-6">
-          {{-- da inserire quando si aggiungeranno fisicamente le immagini  --}}
+        <div class="col-6 d-flex justify-content-center">
+          <div class="w-50">
+            <img src="{{ old('img', $Shoe->img)}}" class="img-fluid" alt="">
+          </div>
         </div>
 
         {{-- save data  --}}

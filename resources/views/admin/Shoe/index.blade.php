@@ -25,9 +25,9 @@
             <a href="{{ route('Admin.Shoe.create') }}" class="btn btn-outline-success ms-auto" type="submit">Nuova Scarpa</a>
           </div>
         </div>
-
       </div>
-
+      {{-- include message success operation --}}
+      @include('partials._message')
       {{-- table show all projects  --}}
       <table class="table table-striped">
         <thead>
