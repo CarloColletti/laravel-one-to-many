@@ -141,6 +141,7 @@ class ShoeController extends Controller
             'size'=> 'required|integer',
             'price'=> 'required',
             'type'=> 'required|string|in:elegant,sportive,casual',
+            'img'=> 'nellable|image|mimes:jpg,png,jpeg'
             ],
             [
             // require message 
@@ -159,6 +160,11 @@ class ShoeController extends Controller
 
             // prise decimal message 
             'price.required'=> 'Il nome della scarpa è obbligatorio',
+
+            // type valid image error 
+            'img.image'=> "Il file deve essere un' immagine ",
+            'img.mimes'=> "Estensione errata, scegli tra: jpg, png, jpeg",
+
 
             ]
 

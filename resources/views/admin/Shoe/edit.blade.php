@@ -11,7 +11,7 @@
         Stai modificando i dati della scarpa: {{$Shoe->name}}
       </h2>
       {{-- form mod new shoes  --}}
-      <form action="{{ route('Admin.Shoe.update', $Shoe) }}" method="POST" class="row py-5">
+      <form action="{{ route('Admin.Shoe.update', $Shoe) }}" enctype="multipart/form-data" method="POST" class="row py-5">
         {{-- token  --}}
         @csrf
 
