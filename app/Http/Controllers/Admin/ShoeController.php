@@ -20,7 +20,7 @@ class ShoeController extends Controller
 
         if($request->has('term')){
             $term = $request->get('term');
-            $shoes = Shoe::where('title', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
+            $shoes = Shoe::where('name', 'LIKE', "%$term%")->paginate(10)->withQueryString(); 
         }else{
             $shoes = Shoe::paginate(15);
         }

@@ -16,7 +16,7 @@ class ShoeSeeder extends Seeder
    */
     public function run(Faker $faker)
     {
-      for($i = 0; $i < 30; $i++) {
+      for($i = 0; $i < 75; $i++) {
         $shoe = new Shoe;
         $shoe -> name = $faker->firstNameMale();
         $shoe -> brand = $faker->state();
