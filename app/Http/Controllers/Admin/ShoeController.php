@@ -65,7 +65,7 @@ class ShoeController extends Controller
 
         // redirect con route alla show ma con la variabile flash per successo  creazione 
         return to_route('Admin.Shoe.show', $shoe)
-            ->with('create_success','Scarpa creata con successo' );
+            ->with('message_content',"La scarpa $shoe->name è stata creata con successo" );
     }
 
     /**
@@ -104,7 +104,12 @@ class ShoeController extends Controller
 
         $Shoe->update($data);
 
-        return redirect ()->route('Admin.Shoe.show', $Shoe);
+        // return redirect ()->route('Admin.Shoe.show', $Shoe);
+
+
+        // redirect con route alla show ma con la variabile flash per successo  modifica
+        return to_route('Admin.Shoe.show', $Shoe)
+            ->with('message_content',"La scarpa $Shoe->name è stata modificata con successo" );
     }
 
     /**
@@ -114,10 +119,17 @@ class ShoeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Shoe $Shoe)
-    {
+    {   
+        $id_shoe = $Shoe->name;
         $Shoe->delete();
 
-        return redirect ()->route('Admin.Shoe.index');
+        // return redirect ()->route('Admin.Shoe.index');
+
+
+        // redirect con route alla all'index ma con la variabile flash per successo  cancellazione
+        return to_route('Admin.Shoe.index')
+            ->with('message_type',"danger" )
+            ->with('message_content',"La scarpa $id_shoe è stata eliminate con successo" );
     }
 
     private function validation($data) {

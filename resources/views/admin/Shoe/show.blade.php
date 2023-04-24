@@ -6,17 +6,17 @@
 
 @section('content')
   <div class="container">
-    <div class="row py-3">
-      @if (session('create_success'))
-        <div class="alert alert-success">
-          {{ session('create_success') }}
-        </div>
-      @endif
-    </div>
-    <div class="row py-5">
+    
+    <div class="row py-4">
       <h2>
         Stai visualizzando la Scarpa: {{$Shoe->name}}
       </h2>
+    </div>
+    {{-- button to modify shoe  --}}
+    <div class="row py-5">
+      <div class="col-2 ms-auto">
+        <a href="{{ route('Admin.Shoe.edit', ['Shoe'=>$Shoe]) }}" class="btn btn-outline-success ms-auto" type="submit">Modifica</a>
+      </div>
     </div>
     {{-- detail shoe  --}}
     <div class="row">
@@ -43,6 +43,6 @@
         <a href="{{ route('Admin.Shoe.index') }}" class="btn btn-outline-success">Torna alla lista</a>
       </div>
     </div>
-
+    
   </div>
 @endsection

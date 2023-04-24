@@ -28,7 +28,6 @@
 
       </div>
 
-
       {{-- table show all projects  --}}
       <table class="table table-striped">
         <thead>
