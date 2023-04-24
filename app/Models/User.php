@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // mutator --> il nome si crea usando:
+    // set -- 
+    // Password -- il nome del tipo di mutator interessato 
+    // Attribute --- con questultima laravel capisce che si tratta di un mutator
+
+    protected function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
