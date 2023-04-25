@@ -90,12 +90,12 @@
                 </select>
               </div>
 
-              {{-- PLACEHOLDER save storege image  --}}
+              {{-- save storege image  --}}
               
-              {{-- <label for="img" class="form-label">Carica un'immagine</label>
+              <label for="img" class="form-label">Carica un'immagine</label>
               <div class="input-group mb-3">
-                <input type="file" class="form-control" id="img" name='img'>
-              </div> --}}
+                <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name='img'>
+              </div>
 
               {{-- -------------------------------- --}}
 

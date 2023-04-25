@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Shoe;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ShoeController extends Controller
 {
@@ -54,10 +56,20 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {   
+
+        $data = $request->all();
+
+
+        // salvo e creo il path per poi salvarlo 
+        if(Arr::exists($data, 'img')) {
+            $path = Storage::put('uplodas/shoes', $data['img']);
+            
+        };
+
     
         $shoe = new Shoe;
-        $shoe -> fill($this->validation($request->all()));
-        $shoe -> img = "https://picsum.photos/300/200";
+        $shoe -> fill($this->validation($data));
+        $shoe-> img = $path; //salvo il path
         $shoe ->save();
 
         // redirect standard alla show 
@@ -98,9 +110,10 @@ class ShoeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Shoe $Shoe)
-    {
+    {   
 
         $data = $this->validation($request->all());
+        
 
         $Shoe->update($data);
 
@@ -141,7 +154,7 @@ class ShoeController extends Controller
             'size'=> 'required|integer',
             'price'=> 'required',
             'type'=> 'required|string|in:elegant,sportive,casual',
-            'img'=> 'nellable|image|mimes:jpg,png,jpeg'
+            'img'=> 'nullable|image|mimes:jpg,png,jpeg'
             ],
             [
             // require message 

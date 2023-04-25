@@ -35,7 +35,7 @@
 
       {{-- image shoe  --}}
       <div class="col-5">
-        <img src="{{ $Shoe->img }}" alt="">
+        <img src="{{ $Shoe->getImage() }}" alt="{{ $Shoe->name }}-image" class="img-fluid">
       </div>
     </div>
 
